@@ -1,9 +1,12 @@
 import Cocoa
 import SwiftUI
 import CoreAudio
+import AMCoreAudio
 import soundadditions
 
-class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, EventSubscriber {
+    
+    var updateTimer: Timer!
     
     var statusBarItem: NSStatusItem!
     var statusBarMenu: NSMenu!
@@ -23,11 +26,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             button.action = #selector(onClick)
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
+        
+        //self.updateTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(updateBar), userInfo: nil, repeats: true)
+        
+        setupCallback()
 
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.updateBar()
         }
-
     }
     
     @objc func onClick(sender: NSStatusItem) {
@@ -47,6 +53,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     @objc func menuDidClose(_ menu: NSMenu) {
         statusBarItem.menu = nil
     }
+    
+    
     
     func s(_ s: String) -> NSAttributedString {
         return NSAttributedString(string: s)
@@ -125,6 +133,54 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             s(" "),
             s(icon(defInput)+inpName)
         )
+    }
+    
+    func setupCallback() {
+        AudioHardware.sharedInstance.enableDeviceMonitoring()
+        
+        NotificationCenter.defaultCenter.subscribe(self, eventType: AudioDeviceEvent.self)
+        NotificationCenter.defaultCenter.subscribe(self, eventType: AudioHardwareEvent.self)
+    }
+    
+    func eventReceiver(_ event: AudioDeviceEvent) {
+        print("EVENT \(event)")
+        switch event {
+        case .muteDidChange(let audioDevice, let channel, let direction):
+            self.updateBar()
+        case .listDidChange(let audioDevice):
+            self.updateBar()
+        case .isJackConnectedDidChange(let audioDevice):
+            self.updateBar()
+        default:
+            print("default")
+        }
+    }
+    
+    func eventReceiver(_ event: AudioHardwareEvent) {
+        print("EVENT \(event)")
+        switch event {
+        case .deviceListChanged(let addedDevices, let removedDevices):
+            self.updateBar()
+        case .defaultInputDeviceChanged(let audioDevice):
+            self.updateBar()
+        case .defaultOutputDeviceChanged(let audioDevice):
+            self.updateBar()
+        case .defaultSystemOutputDeviceChanged(let audioDevice):
+            self.updateBar()
+        default:
+            print("default")
+        }
+    }
+    
+    func eventReceiver(_ event: Event) {
+        switch event {
+        case let e as AudioDeviceEvent:
+            eventReceiver(e)
+        case let e as AudioHardwareEvent:
+            eventReceiver(e)
+        default:
+            print("default event \(event)")
+        }
     }
     
     // Updates the status bar

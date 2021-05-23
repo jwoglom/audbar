@@ -10,14 +10,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, EventSubscri
     
     var statusBarItem: NSStatusItem!
     var statusBarMenu: NSMenu!
+    
+    var settings: Settings! = Settings()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        settings.parent = self
         self.statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
 
         self.statusBarMenu = NSMenu(title: "AudioBar")
         if let menu = self.statusBarMenu {
+            menu.addItem(withTitle: "Settings", action: nil, keyEquivalent: "s")
+            menu.setSubmenu(settings.createMenu(), for: menu.item(withTitle: "Settings")!)
             menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
-            
             menu.delegate = self
         }
 
@@ -125,7 +129,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, EventSubscri
         let outName = clean(defOutput.name)
         
         if inpName == outName {
-            return s(icon(defOutput)+outName)
+            if settings.getCheckboxSetting(pref: .showCombinedIcon) {
+                return s(icon(defOutput)+outName)
+            } else {
+                return s(outName)
+            }
         }
         
         return append(

@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, EventSubscri
                                 in: statusBarItem.button)
             
         } else {
-            updateBar()
+            optionClickVolumeMenu()
         }
     }
     
@@ -183,10 +183,48 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, EventSubscri
         }
     }
     
+    func runApplescript(_ cmd: String) -> String? {
+        var error: NSDictionary?
+        if let scriptObject = NSAppleScript(source: cmd) {
+            let output: NSAppleEventDescriptor = scriptObject.executeAndReturnError(
+                                                                               &error)
+            if (error != nil) {
+                print("error: \(error)")
+                if !readPrivileges(prompt: true) {
+                    NSWorkspace.shared.open(URL.init(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility")!)
+                }
+            } else {
+                return output.stringValue
+            }
+        }
+        return nil
+    }
+    
+    private func readPrivileges(prompt: Bool) -> Bool {
+        let options: NSDictionary = [kAXTrustedCheckOptionPrompt.takeRetainedValue() as NSString: prompt]
+        let status = AXIsProcessTrustedWithOptions(options)
+        return status
+    }
+    
+    func optionClickVolumeMenu() {
+        runApplescript("""
+tell application "System Events"
+        tell application process "SystemUIServer"
+                set theProperties to item 1 of (get properties of every menu bar item of menu bar 1 whose description starts with "Volume")
+        end tell
+        set theXpos to (item 1 of position in theProperties) + ((item 1 of size in theProperties) / 2) as integer
+        set theYpos to (item 2 of position in theProperties) + ((item 2 of size in theProperties) / 2) as integer
+end tell
+tell current application
+        do shell script "/usr/local/bin/cliclick kd:alt c:" & theXpos & "," & theYpos & " ku:alt"
+end tell
+""")
+    }
+    
     // Updates the status bar
     @objc func updateBar() {
         let s = self.buildString()
-        print(s)
+        print(s.string)
         if let button = self.statusBarItem.button {
             DispatchQueue.main.async {
                 button.attributedTitle = s

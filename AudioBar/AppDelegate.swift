@@ -2,8 +2,8 @@ import Cocoa
 import SwiftUI
 import CoreAudio
 import AMCoreAudio
-import soundadditions
 
+@main
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, EventSubscriber {
     
     var updateTimer: Timer!
@@ -249,9 +249,3 @@ end tell
         }
     }
 }
-
-
-let app = NSApplication.shared
-let delegate = AppDelegate()
-app.delegate = delegate
-app.run()

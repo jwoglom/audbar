@@ -13,17 +13,20 @@ class Settings: NSObject, NSApplicationDelegate, NSMenuDelegate {
     var settingsMenu: NSMenu!
     var parent: AppDelegate! = nil
     
-    enum PreferenceField : String {
+    enum PreferenceField : String, CaseIterable {
         case showCombinedIcon
+        case showOutputIcon
     }
     
     let prefTitles : [PreferenceField:String] = [
-        .showCombinedIcon: "Show Combined Icon"
+        .showCombinedIcon: "Show Combined Icon",
+        .showOutputIcon: "Show Output Icon"
     ]
     
     func createMenu() -> NSMenu {
         settingsMenu = NSMenu(title: "Settings")
         addItem(withTitle: prefTitles[.showCombinedIcon]!, action: #selector(settingsShowCombinedIcon))
+        addItem(withTitle: prefTitles[.showOutputIcon]!, action: #selector(settingsShowOutputIcon))
         updateCheckboxSettings()
         
         return settingsMenu
@@ -54,6 +57,10 @@ class Settings: NSObject, NSApplicationDelegate, NSMenuDelegate {
         changeCheckboxSetting(pref: .showCombinedIcon)
     }
     
+    @objc func settingsShowOutputIcon() {
+        changeCheckboxSetting(pref: .showOutputIcon)
+    }
+    
     func changeCheckboxSetting(pref: PreferenceField) {
         if getCheckboxSetting(pref: pref) {
             setPref(key: pref, val: "false")
@@ -65,7 +72,9 @@ class Settings: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
     
     func updateCheckboxSettings() {
-        updateCheckboxSetting(menu: settingsMenu, pref: .showCombinedIcon)
+        for pref in PreferenceField.allCases {
+            updateCheckboxSetting(menu: settingsMenu, pref: pref)
+        }
     }
     
     func updateCheckboxSetting(menu: NSMenu, pref: PreferenceField) {

@@ -136,11 +136,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, EventSubscri
             }
         }
         
-        return append(
-            s(icon(defOutput)+outName),
-            s(" "),
-            s(icon(defInput)+inpName)
-        )
+        if settings.getCheckboxSetting(pref: .showOutputIcon) {
+            return append(
+                s(icon(defOutput)+outName),
+                s(" "),
+                s(icon(defInput)+inpName)
+            )
+        } else {
+            return append(
+                s(outName),
+                s(" "),
+                s(icon(defInput)+"   "+inpName)
+            )
+        }
+
     }
     
     func setupCallback() {

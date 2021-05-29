@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A92EE122661F9B600E75820 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A92EE112661F9B600E75820 /* AppDelegate.swift */; };
+		1A92EE162661F9B900E75820 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A92EE152661F9B900E75820 /* Assets.xcassets */; };
+		1A92EE192661F9B900E75820 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A92EE182661F9B900E75820 /* Preview Assets.xcassets */; };
+		1A92EE1C2661F9B900E75820 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A92EE1A2661F9B900E75820 /* Main.storyboard */; };
+		1A92EE262661FA1300E75820 /* AudioDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A92EE252661FA1300E75820 /* AudioDevices.swift */; };
+		1A92EE2A2661FA2600E75820 /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A92EE292661FA2600E75820 /* settings.swift */; };
+		1A92EE332661FAB400E75820 /* AMCoreAudio in Frameworks */ = {isa = PBXBuildFile; productRef = 1A92EE322661FAB400E75820 /* AMCoreAudio */; };
+		1A92EE372661FAED00E75820 /* ISSoundAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A92EE362661FAED00E75820 /* ISSoundAdditions.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A92EE0E2661F9B600E75820 /* AudBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A92EE112661F9B600E75820 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1A92EE152661F9B900E75820 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A92EE182661F9B900E75820 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1A92EE1B2661F9B900E75820 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1A92EE1D2661F9B900E75820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A92EE1E2661F9B900E75820 /* AudBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AudBar.entitlements; sourceTree = "<group>"; };
+		1A92EE252661FA1300E75820 /* AudioDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDevices.swift; sourceTree = "<group>"; };
+		1A92EE292661FA2600E75820 /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
+		1A92EE2C2661FA5E00E75820 /* AudBar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudBar-Bridging-Header.h"; sourceTree = "<group>"; };
+		1A92EE2D2661FA5E00E75820 /* ISSoundAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISSoundAdditions.h; sourceTree = "<group>"; };
+		1A92EE362661FAED00E75820 /* ISSoundAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ISSoundAdditions.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A92EE0B2661F9B600E75820 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A92EE332661FAB400E75820 /* AMCoreAudio in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A92EE052661F9B600E75820 = {
+			isa = PBXGroup;
+			children = (
+				1A92EE102661F9B600E75820 /* AudBar */,
+				1A92EE0F2661F9B600E75820 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A92EE0F2661F9B600E75820 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A92EE0E2661F9B600E75820 /* AudBar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A92EE102661F9B600E75820 /* AudBar */ = {
+			isa = PBXGroup;
+			children = (
+				1A92EE112661F9B600E75820 /* AppDelegate.swift */,
+				1A92EE152661F9B900E75820 /* Assets.xcassets */,
+				1A92EE1A2661F9B900E75820 /* Main.storyboard */,
+				1A92EE1D2661F9B900E75820 /* Info.plist */,
+				1A92EE1E2661F9B900E75820 /* AudBar.entitlements */,
+				1A92EE172661F9B900E75820 /* Preview Content */,
+				1A92EE252661FA1300E75820 /* AudioDevices.swift */,
+				1A92EE292661FA2600E75820 /* settings.swift */,
+				1A92EE2D2661FA5E00E75820 /* ISSoundAdditions.h */,
+				1A92EE2C2661FA5E00E75820 /* AudBar-Bridging-Header.h */,
+				1A92EE362661FAED00E75820 /* ISSoundAdditions.m */,
+			);
+			path = AudBar;
+			sourceTree = "<group>";
+		};
+		1A92EE172661F9B900E75820 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1A92EE182661F9B900E75820 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A92EE0D2661F9B600E75820 /* AudBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A92EE212661F9B900E75820 /* Build configuration list for PBXNativeTarget "AudBar" */;
+			buildPhases = (
+				1A92EE0A2661F9B600E75820 /* Sources */,
+				1A92EE0B2661F9B600E75820 /* Frameworks */,
+				1A92EE0C2661F9B600E75820 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AudBar;
+			packageProductDependencies = (
+				1A92EE322661FAB400E75820 /* AMCoreAudio */,
+			);
+			productName = AudBar;
+			productReference = 1A92EE0E2661F9B600E75820 /* AudBar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A92EE062661F9B600E75820 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					1A92EE0D2661F9B600E75820 = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
+				};
+			};
+			buildConfigurationList = 1A92EE092661F9B600E75820 /* Build configuration list for PBXProject "AudBar" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A92EE052661F9B600E75820;
+			packageReferences = (
+				1A92EE312661FAB400E75820 /* XCRemoteSwiftPackageReference "SimplyCoreAudio" */,
+			);
+			productRefGroup = 1A92EE0F2661F9B600E75820 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A92EE0D2661F9B600E75820 /* AudBar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A92EE0C2661F9B600E75820 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A92EE1C2661F9B900E75820 /* Main.storyboard in Resources */,
+				1A92EE192661F9B900E75820 /* Preview Assets.xcassets in Resources */,
+				1A92EE162661F9B900E75820 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A92EE0A2661F9B600E75820 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A92EE262661FA1300E75820 /* AudioDevices.swift in Sources */,
+				1A92EE372661FAED00E75820 /* ISSoundAdditions.m in Sources */,
+				1A92EE122661F9B600E75820 /* AppDelegate.swift in Sources */,
+				1A92EE2A2661FA2600E75820 /* settings.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1A92EE1A2661F9B900E75820 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A92EE1B2661F9B900E75820 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1A92EE1F2661F9B900E75820 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1A92EE202661F9B900E75820 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		1A92EE222661F9B900E75820 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AudBar/AudBar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"AudBar/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = AudBar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jwoglom.AudBar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AudBar/AudBar-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1A92EE232661F9B900E75820 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AudBar/AudBar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"AudBar/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = AudBar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jwoglom.AudBar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AudBar/AudBar-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A92EE092661F9B600E75820 /* Build configuration list for PBXProject "AudBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A92EE1F2661F9B900E75820 /* Debug */,
+				1A92EE202661F9B900E75820 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A92EE212661F9B900E75820 /* Build configuration list for PBXNativeTarget "AudBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A92EE222661F9B900E75820 /* Debug */,
+				1A92EE232661F9B900E75820 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1A92EE312661FAB400E75820 /* XCRemoteSwiftPackageReference "SimplyCoreAudio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rnine/SimplyCoreAudio.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1A92EE322661FAB400E75820 /* AMCoreAudio */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A92EE312661FAB400E75820 /* XCRemoteSwiftPackageReference "SimplyCoreAudio" */;
+			productName = AMCoreAudio;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1A92EE062661F9B600E75820 /* Project object */;
+}

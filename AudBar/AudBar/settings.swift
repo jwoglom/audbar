@@ -1,6 +1,6 @@
 //
 //  settings.swift
-//  
+//
 //
 //  Created by James Woglom on 5/22/21.
 //

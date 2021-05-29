@@ -2,8 +2,8 @@ import Cocoa
 import SwiftUI
 import CoreAudio
 import AMCoreAudio
-import soundadditions
 
+@main
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, EventSubscriber {
     
     var updateTimer: Timer!
@@ -122,6 +122,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, EventSubscri
             defInput = try AudioDevice.getDefaultDevice(for: .input)
             defOutput = try AudioDevice.getDefaultDevice(for: .output)
         } catch {
+            print("Unable to read audio device info")
             return s("error")
         }
         
@@ -249,9 +250,3 @@ end tell
         }
     }
 }
-
-
-let app = NSApplication.shared
-let delegate = AppDelegate()
-app.delegate = delegate
-app.run()

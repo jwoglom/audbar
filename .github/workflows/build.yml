@@ -11,22 +11,24 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build with Swift
-        run: swift build 
+      - name: Build with Xcode
+        run: xcodebuild
         
       - name: Show Files
         run: find .
         
       - name: chmod unsigned app
         run: |
-          chmod +x .build/x86_64-apple-macosx/debug/audbar
+          chmod +x build/Release/AudBar.app/Contents/MacOS/AudBar
+          cd build/Release/
+          zip -r $RUNNER_TEMP/unsigned_app.zip AudBar.app
 
       - name: Upload Unsigned app
         uses: actions/upload-artifact@v2
         with:
-          name: audbar-unsigned
-          path: .build/x86_64-apple-macosx/debug/audbar
-          
+          name: AudBar-unsigned
+          path: ${{ runner.temp }}/unsigned_app.zip
+
       - name: Install certificate
         env:
           BUILD_CERTIFICATE_BASE64: ${{ secrets.MACOS_CERTIFICATE }}
@@ -52,15 +54,16 @@ jobs:
           
           # set-key-partition-list and codesign
           security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k $MACOS_CERTIFICATE_PWD $KEYCHAIN_PATH
-          /usr/bin/codesign --force -s $CERTIFICATE_ID .build/x86_64-apple-macosx/debug/audbar -v
+          /usr/bin/codesign --force -s $CERTIFICATE_ID ./build/Release/AudBar.app -v
 
-
-      - name: Chmod signed app
+      - name: Zip signed app
         run: |
-          chmod +x .build/x86_64-apple-macosx/debug/audbar
+          chmod +x build/Release/AudBar.app/Contents/MacOS/AudBar
+          cd build/Release/
+          zip -r $RUNNER_TEMP/signed_app.zip AudBar.app
 
       - name: Upload Signed app
         uses: actions/upload-artifact@v2
         with:
-          name: audbar-signed
-          path: .build/x86_64-apple-macosx/debug/audbar
+          name: AudBar-signed
+          path: ${{ runner.temp }}/signed_app.zip

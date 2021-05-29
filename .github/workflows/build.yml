@@ -18,7 +18,9 @@ jobs:
           cp -r /Users/runner/Library/Developer/Xcode/DerivedData/AudBar-*/Build/Products/Debug/AudBar.app build/
         
       - name: Show Files
-        run: find .
+        run: |
+          find /Users/runner/Library/Developer/Xcode/DerivedData/
+          find .
         
       - name: chmod unsigned app
         run: |

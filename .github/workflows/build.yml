@@ -14,15 +14,16 @@ jobs:
       - name: Build with Xcode
         run: |
           xcodebuild -scheme AudBar
-          env
+          mkdir build/
+          cp -r /Users/runner/Library/Developer/Xcode/DerivedData/AudBar-*/Build/Products/Debug/AudBar.app build/
         
       - name: Show Files
         run: find .
         
       - name: chmod unsigned app
         run: |
-          chmod +x build/Release/AudBar.app/Contents/MacOS/AudBar
-          cd build/Release/
+          chmod +x build/AudBar.app/Contents/MacOS/AudBar
+          cd build/
           zip -r $RUNNER_TEMP/unsigned_app.zip AudBar.app
 
       - name: Upload Unsigned app
@@ -56,12 +57,12 @@ jobs:
           
           # set-key-partition-list and codesign
           security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k $MACOS_CERTIFICATE_PWD $KEYCHAIN_PATH
-          /usr/bin/codesign --force -s $CERTIFICATE_ID ./build/Release/AudBar.app -v
+          /usr/bin/codesign --force -s $CERTIFICATE_ID ./build/AudBar.app -v
 
       - name: Zip signed app
         run: |
-          chmod +x build/Release/AudBar.app/Contents/MacOS/AudBar
-          cd build/Release/
+          chmod +x build/AudBar.app/Contents/MacOS/AudBar
+          cd build/
           zip -r $RUNNER_TEMP/signed_app.zip AudBar.app
 
       - name: Upload Signed app

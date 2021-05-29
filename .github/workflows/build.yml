@@ -12,7 +12,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build with Xcode
-        run: xcodebuild -scheme AudBar
+        run: |
+          mkdir -p `pwd`/build
+          CONFIGURATION_BUILD_DIR=`pwd`/build
+          xcodebuild -scheme AudBar
         
       - name: Show Files
         run: find .

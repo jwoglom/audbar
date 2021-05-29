@@ -13,9 +13,8 @@ jobs:
 
       - name: Build with Xcode
         run: |
-          mkdir -p `pwd`/build
-          CONFIGURATION_BUILD_DIR=`pwd`/build
           xcodebuild -scheme AudBar
+          env
         
       - name: Show Files
         run: find .
